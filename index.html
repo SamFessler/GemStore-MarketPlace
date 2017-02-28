@@ -118,32 +118,33 @@
                             </blockquote>
                             
                             <h4>Write a review</h4>
-                            <form>
+                            <form name="reveiwForm" ng-controller="reviewController" ng-submit="addReview(product)">
                                 <blockquote>
-                                    <b>Stars: {{reviews.stars}}</b>
+                                    <b>Stars: {{review.stars}}</b>
                                     <br>
-                                    {{reviews.body}}
+                                    {{review.body}}
                                     <br>
-                                    <cite>by: {{reviews.author}}</cite>
+                                    <cite>by: {{review.author}}</cite>
                                 </blockquote>
                                 
                                 <div class="form-group">
                                     
                                     <label for="stars">Rating</label>
-                                        <select class ="form-control" name="stars" ng-model="reviews.stars">
+                                        <select class ="form-control" name="stars" ng-model="review.stars">
                                             <option value=1>1 star</option>
-                                            <option value=2>1 star</option>
-                                            <option value=3>2 star</option>
+                                            <option value=2>2 star</option>
+                                            <option value=3>3 star</option>
                                             <option value=4>4 star</option>
                                             <option value=5>5 star</option>
                                         </select>
                                     
                                     <label for="body">Review</label>
-                                        <textarea name="body" class="form-control" ng-model="reviews.body"></textarea>
+                                        <textarea name="body" class="form-control" ng-model="review.body"></textarea>
                                     
                                     <label for="author">Email</label>
-                                        <input type=text placeholder="Email Address" name="author" ng-model="reviews.author"/>
-                                    <input type="submit" value="submit">
+                                        <input type=text placeholder="Email Address" name="author" ng-model="review.author"/>
+                                    
+                                    <input type="submit" value="Add Review" class="btn btn-primary">
                                 </div>
                             </form>
                             

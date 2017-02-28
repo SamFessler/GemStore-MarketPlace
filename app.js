@@ -57,6 +57,23 @@ samApp.controller('samController',function($scope){
     };
 });
 
+//form controls for writing reveiws
+samApp.controller('reviewController',function($scope){
+    $scope.review = {};
+    
+    $scope.addReview = function(product){
+        if(!product.reviews){
+            product.reviews = [];
+        }
+        
+        product.reviews.push($scope.review);
+        //send to server
+        $scope.review = {};
+        
+        console.log($scope.review.rating);
+    }
+})
+
 angular.module('samApp').controller("panelController", function($scope){
     
     $scope.tab =1;
