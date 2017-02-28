@@ -1,4 +1,4 @@
-var samApp = angular.module('samApp', []);
+var samApp = angular.module('samApp', ['ui.bootstrap']);
 
 var gem=[
     {
