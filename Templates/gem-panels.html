@@ -1,0 +1,31 @@
+<!--pannel code-->
+<section>
+    <ul class="nav nav-pills">
+        <li ng-class="{active: tab === 1}"><a href ng-click=selectTab(1)>Description</a></li>
+        <li ng-class="{active: tab === 2}"><a href ng-click=selectTab(2)>Specifications</a></li>
+        <li ng-class="{active: tab === 3}"><a href ng-click=selectTab(3)>Reviews</a></li>
+        <li ng-class="{active: tab === 4}"><a href ng-click=selectTab(4)>Write Review</a></li>
+    </ul>
+</section>
+
+<div class="panel" ng-show="tab === 1">
+    <h4>Description</h4>
+    <p>{{product.description}}</p>
+</div>
+
+<div class="panel" ng-show="tab === 2">
+    <h4>Specifications</h4>
+    <p></p>
+</div>
+
+<div class="panel" ng-show="tab === 3">
+    <h4>Reviews</h4>
+    <blockquote ng-repeat="reviews in product.reviews"> 
+        <b>Stars: {{reviews.stars}}</b><br>
+        {{reviews.body}}<br> 
+        <cite>by: {{reviews.author}}</cite> 
+    </blockquote>
+    
+</div>
+
+<div class="panel" ng-show="tab === 4" write-review> </div>

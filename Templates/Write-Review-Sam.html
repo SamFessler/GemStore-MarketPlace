@@ -1,0 +1,51 @@
+<h4>Write a review</h4>
+
+<form name="reviewForm" ng-submit="validate() && addReview(product)" novalidate>
+    <!--checks to see if all form fields are filled in-->
+    
+    <div class="alert alert-warning" role="alert" ng-show="{{reviewForm.$dirty && reviewForm.$invalid}}"> 
+        $Valid: {{reviewForm.$valid}}<br> 
+        $Submitted: {{reviewForm.$submitted}}<br><!-- has form been submitted before -->
+        $Dirty: {{reviewForm.$dirty}}<br><!-- is true if form has been touched on page -->
+        $Pristine: {{reviewForm.$pristine}}<br> <!--is true if form has NOT been touched on page-->
+        $Invalid: {{reviewForm.$invalid}}<br> 
+        $Invalid-Required: {{reviewForm.$invalid-required}}<br>
+        
+        
+        <ul>
+            <li ng-show="{{reviewForm.stars.$dirty && reviewForm.stars.$invalid}}">Rating Required for submission</li>
+            <li ng-show="{{reviewForm.body.$dirty && reviewForm.body.$invalid}}">Review is requried for submission</li>
+            <li ng-show="{{reviewForm.author.$dirty && reviewForm.author.$invalid}}">Email is required for submission</li>
+        </ul> 
+<!--        Form not filled in correctly -->
+    </div>
+    
+    
+    <div class="alert alert-info" role="alert" ng-show="reviewForm.$valid"> Form correctly filled in </div>
+    
+    <blockquote> <b>Stars: {{review.stars}}</b>
+        <br> {{review.body}}
+        <br> <cite>by: {{review.author}}</cite> 
+    </blockquote>
+    
+    <div class="form-group">
+        <label for="stars">Rating</label>
+        <select class="form-control" name="stars" ng-model="review.stars">
+            <option value=1>1 star</option>
+            <option value=2>2 star</option>
+            <option value=3>3 star</option>
+            <option value=4>4 star</option>
+            <option value=5>5 star</option>
+        </select>
+        
+        <label for="body">Review</label>
+        <textarea name="body" class="form-control" ng-model="review.body" required>
+        </textarea>
+        
+        <label for="author">Email</label>
+        <input type="email" placeholder="Email Address" name="author" ng-model="review.author" ng-class="{has-error}" required/>
+        
+        <input type="submit" value="Add Review" class="btn btn-primary"> 
+    </div>
+</form>
+
